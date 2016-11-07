@@ -1,0 +1,258 @@
+Version = 1.10.7.32031;
+CParticleEffect	$LOCAL$/Resource
+{
+	EditorInfosPosition = int2(73, 52);
+	OnSpawn = "$LOCAL$/Spawner";
+	CustomAttributes = "$LOCAL$/_GlobalAttributes";
+	Autostart = true;
+}
+CNEdEditorParticle_Data	$LOCAL$/EDITOR
+{
+	EditorInfosPosition = int2(413, -144);
+	Position = float3(0.0000000e+000, 5.0000000e-001, 2.0000000e+000);
+	Backdrops = "$LOCAL$/_BackdropList";
+	IsLooping = true;
+}
+CActionFactoryParticleSpawnerBase	$LOCAL$/Cards
+{
+	EditorInfosPosition = int2(-288, -61);
+	Descriptor = "$LOCAL$/CParticleDescriptor_AE135B2A";
+	DurationInSeconds = 4.0000000e+000;
+	SpawnCount = 3.2000000e+001;
+}
+CParticleDescriptor	$LOCAL$/CParticleDescriptor_AE135B2A
+{
+	EditorInfosPosition = int2(-392, -44);
+	Renderer = "$LOCAL$/CParticleRenderer_List_25660D3F";
+	CustomFields = 
+	{
+		"$LOCAL$/CParticleFieldDeclaration_5F1A0D53",
+		"$LOCAL$/CParticleFieldDeclaration_9555FE2C",
+		"$LOCAL$/CParticleFieldDeclaration_DD54225F",
+	};
+	Samplers = 
+	{
+		"$LOCAL$/CParticleSamplerShape_9B3E86DB",
+	};
+	SpawnEvaluator = "$LOCAL$/CCompilerSyntaxNodeExpression_5566F5E7";
+	States = 
+	{
+		"$LOCAL$/CParticleState_3AF8190E",
+	};
+}
+CActionFactoryWithChilds	$LOCAL$/Spawner
+{
+	EditorInfosPosition = int2(-162, -81);
+	ChildList = 
+	{
+		"$LOCAL$/Cards",
+	};
+}
+CCompilerSyntaxNodeExpression	$LOCAL$/CCompilerSyntaxNodeExpression_5566F5E7
+{
+	EditorInfosPosition = int2(-508, 22);
+	Expression = "function void	Eval()
+{
+	Size = 0.09;
+	Color = float4(1.0);
+	Velocity = vrand();
+	
+	Position = Mesh.samplePosition();
+	
+}
+";
+}
+CParticleState	$LOCAL$/CParticleState_3AF8190E
+{
+	EditorInfosPosition = int2(-508, 65);
+	StateName = "Evolvers";
+	Evolvers = 
+	{
+		"$LOCAL$/CParticleEvolver_Physics_36D6D4BD",
+		"$LOCAL$/Evolver_1",
+		"$LOCAL$/Script_1",
+	};
+}
+CParticleEvolver_Physics	$LOCAL$/CParticleEvolver_Physics_36D6D4BD
+{
+	EditorInfosPosition = int2(-590, 86);
+	CustomName = "Physics";
+}
+CEntityWithTransformsFactory	$LOCAL$/CEntityWithTransformsFactory_96A00101
+{
+	EditorInfosPosition = int2(303, -79);
+}
+CParticleAttributeList	$LOCAL$/_GlobalAttributes
+{
+	EditorInfosPosition = int2(-599, -20);
+}
+CNEdEditorBackdrop_List	$LOCAL$/_BackdropList
+{
+	EditorInfosPosition = int2(125, -433);
+	BackgroundLayers2D = 
+	{
+		"$LOCAL$/CNEdEditorBackdrop_Brush_9A913525",
+	};
+	SceneLayers3D = 
+	{
+		"$LOCAL$/CNEdEditorBackdrop_Grid_499DEFF3",
+		"$LOCAL$/_Backdrop_Light",
+		"$LOCAL$/CNEdEditorBackdrop_Light_B76AB35E",
+		"$LOCAL$/CNEdEditorBackdrop_Light_4D677FF2",
+	};
+}
+CNEdEditorBackdrop_Brush	$LOCAL$/CNEdEditorBackdrop_Brush_9A913525
+{
+	EditorInfosPosition = int2(-27, -485);
+	LayerName = "Layer_Brush";
+	BackgroundColorTop = float4(2.5198427e-001, 8.9005671e-002, 5.4251015e-001, 1.0000000e+000);
+}
+CNEdEditorBackdrop_Light	$LOCAL$/_Backdrop_Light
+{
+	LayerName = "GlobalLight";
+	Position = float3(-6.1069888e-001, -1.6000000e+002, 7.9466468e-001);
+	EulerOrientation = float3(2.7140872e+002, 3.3222772e+002, 3.0155364e-001);
+	LightFactory = "$LOCAL$/_Backdrop_Light_Factory";
+	LightDistance = 1.6000314e+002;
+}
+CNEdEditorLightFactory	$LOCAL$/_Backdrop_Light_Factory
+{
+	NearClipPlane = 1.0000000e+002;
+	Fov = 2.7722153e+001;
+	LightSize = 9.9999998e-003;
+	SpotFalloff = 8.8541701e-002;
+	Magnitude = 1.0000000e+005;
+}
+CNEdEditorBackdrop_Grid	$LOCAL$/CNEdEditorBackdrop_Grid_499DEFF3
+{
+	IsVisible = false;
+	LayerName = "Grid_1";
+	MainColor = float4(1.5000001e-001, 1.5000001e-001, 1.5000001e-001, 1.0000000e+000);
+	SecondaryColor = float4(3.9999999e-002, 3.9999999e-002, 3.9999999e-002, 1.0000000e+000);
+}
+CParticleFieldDeclaration	$LOCAL$/CParticleFieldDeclaration_5F1A0D53
+{
+	FieldName = "Color";
+	FieldType = float4;
+}
+CParticleSamplerShape	$LOCAL$/CParticleSamplerShape_9B3E86DB
+{
+	SamplerName = "Mesh";
+	Shape = "$LOCAL$/CShapeDescriptor_DE90F13A";
+}
+CShapeDescriptor	$LOCAL$/CShapeDescriptor_DE90F13A
+{
+	CustomName = "Mesh";
+	ShapeType = SPHERE;
+}
+CParticleEvolver_Projection	$LOCAL$/Evolver_1
+{
+	CustomName = "Projection";
+	Shape = "Mesh";
+	OutputParametricCoordsField = "pCoords";
+}
+CParticleEvolver_Script	$LOCAL$/Script_1
+{
+	CustomName = "Script";
+	Expression = "$LOCAL$/CCompilerSyntaxNodeExpression_48976B85";
+}
+CCompilerSyntaxNodeExpression	$LOCAL$/CCompilerSyntaxNodeExpression_48976B85
+{
+	Expression = "function void	Eval()
+{
+	float3 normal = Mesh.sampleNormal(pCoords);
+	
+	Axis2 = -normal;
+	
+	/*Pour que tes billboard suive les normals du mesh tu doit passer ton Billboard Mode en PlanarAlignedQuad et indique Axis2Field moi je met \"Axis2\",
+	ensuite tu créer un evolver projection et dans OutputParametricCoordsField tu met le nom de ta variable \"pCoords\" pour moi. Tu créer
+	une variable int3 dans tes fields nommer \"pCoords\" ou le nom que tu aura indiquer dans le champs précedent.
+	Ensuite dans l\'Evolver Script tu créer un float3 normal = Shape_1.sampleNormal(pCoords); et dans ton Axis2 tu reprend ta valeur \"normal\".
+	
+	Normalement, on a un exemple dans le pack GDC headInsect.*/
+	
+}
+";
+}
+CParticleFieldDeclaration	$LOCAL$/CParticleFieldDeclaration_9555FE2C
+{
+	FieldName = "Axis2";
+	FieldType = float3;
+}
+CParticleFieldDeclaration	$LOCAL$/CParticleFieldDeclaration_DD54225F
+{
+	FieldName = "pCoords";
+	FieldType = int3;
+}
+CParticleRenderer_Mesh	$LOCAL$/CParticleRenderer_Mesh_74D1FD65
+{
+	CustomName = "Mesh";
+	Meshes = 
+	{
+		"$LOCAL$/CParticleRenderer_Mesh_Descriptor_2A59058C",
+	};
+	Scale = float3(5.0000000e+000, 5.0000000e+000, 5.0000000e+000);
+	ForwardAxisField = "Axis2";
+}
+CParticleRenderer_Mesh_Descriptor	$LOCAL$/CParticleRenderer_Mesh_Descriptor_2A59058C
+{
+	Mesh = "Meshes/flatcard.pkmm";
+	Diffuse = "Textures/Meshes/flatcard_dif.jpg";
+	CustomName = "Mesh_Descriptor";
+}
+CParticleRenderer_List	$LOCAL$/CParticleRenderer_List_25660D3F
+{
+	CustomName = "List";
+	Renderers = 
+	{
+		"$LOCAL$/CParticleRenderer_Billboard_9136D2F4",
+		"$LOCAL$/CParticleRenderer_Mesh_74D1FD65",
+	};
+}
+CParticleRenderer_Billboard	$LOCAL$/CParticleRenderer_Billboard_9136D2F4
+{
+	EditorInfosPosition = int2(-508, -63);
+	CustomName = "Billboard";
+	Diffuse = "Textures/alpha_fill_texture.png";
+	BillboardMode = PlanarAlignedQuad;
+	Axis2Field = "Axis2";
+	AxisScale = 1.0000000e+000;
+}
+CNEdEditorLightFactory	$LOCAL$/CNEdEditorLightFactory_A2281F88
+{
+	NearClipPlane = 1.0000000e+002;
+	Fov = 3.0000000e+001;
+	Magnitude = 1.0000000e+003;
+}
+CNEdEditorLightFactory	$LOCAL$/CNEdEditorLightFactory_5728476F
+{
+	NearClipPlane = 1.0000000e+002;
+	Fov = 2.7722153e+001;
+	LightSize = 9.9999998e-003;
+	SpotFalloff = 8.8541701e-002;
+	Magnitude = 1.0000000e+005;
+}
+CNEdEditorBackdrop_Light	$LOCAL$/CNEdEditorBackdrop_Light_B76AB35E
+{
+	LayerName = "GlobalLight_1";
+	Position = float3(-6.1069888e-001, 1.6000000e+002, 7.9466468e-001);
+	EulerOrientation = float3(-8.8591248e+001, -2.7772259e+001, 3.0154783e-001);
+	LightFactory = "$LOCAL$/CNEdEditorLightFactory_5728476F";
+	LightDistance = 2.0000250e+002;
+}
+CNEdEditorLightFactory	$LOCAL$/CNEdEditorLightFactory_C0D40CB3
+{
+	NearClipPlane = 1.0000000e+002;
+	Fov = 2.7722153e+001;
+	LightSize = 9.9999998e-003;
+	SpotFalloff = 8.8541701e-002;
+	Magnitude = 1.0000000e+005;
+}
+CNEdEditorBackdrop_Light	$LOCAL$/CNEdEditorBackdrop_Light_4D677FF2
+{
+	LayerName = "GlobalLight_2";
+	Position = float3(-6.1069888e-001, 0.0000000e+000, -3.0000000e+002);
+	EulerOrientation = float3(-8.8591240e+001, -2.7772238e+001, 3.0154389e-001);
+	LightFactory = "$LOCAL$/CNEdEditorLightFactory_C0D40CB3";
+	LightDistance = 2.0000093e+002;
+}

@@ -1,0 +1,47 @@
+Version = 1.10.6.31878;
+CHmlFactory	$LOCAL$/Resource
+{
+	MeshTree = "$LOCAL$/CHmlMeshTreeNode_LOD_02C51A6E";
+	Skins = 
+	{
+		"$LOCAL$/CHmlSkinDescriptor_FFED34C0",
+	};
+}
+CHmlMeshTreeNode_LOD	$LOCAL$/CHmlMeshTreeNode_LOD_02C51A6E
+{
+	LODs = 
+	{
+		"$LOCAL$/CHmlMeshTreeNode_ModelRef_810172C9",
+	};
+}
+CHmlMeshTreeNode_ModelRef	$LOCAL$/CHmlMeshTreeNode_ModelRef_810172C9
+{
+	MeshResourcePath = "Meshes/flatcard.pkmm";
+}
+CHmlSkinDescriptor	$LOCAL$/CHmlSkinDescriptor_FFED34C0
+{
+	PublishedName = "Default";
+	Materials = 
+	{
+		"$LOCAL$/CHmlSkinMaterial_890D9283",
+	};
+}
+CMaterialProxy	$LOCAL$/Material_0
+{
+	VirtualName = "Card";
+	BaseMaterial = "Materials/Library/Models.hbo/Opaque";
+	Fields = 
+	{
+		"$LOCAL$/Material_0_Field_0",
+	};
+}
+CHmlSkinMaterial	$LOCAL$/CHmlSkinMaterial_890D9283
+{
+	VirtualName = "Card";
+	MaterialProxy = "$LOCAL$/Material_0";
+}
+CMaterialProxyField	$LOCAL$/Material_0_Field_0
+{
+	FieldName = "DiffuseTexture";
+	ValTexturePath = "Textures/Meshes/flatcard_dif.jpg";
+}
